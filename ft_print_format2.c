@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:18:45 by sujpark           #+#    #+#             */
-/*   Updated: 2022/04/13 10:57:41 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/13 11:22:47 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,12 @@ static char	*ft_itoa(int n)
 int	ft_print_decimal(int num)
 {
 	int	len;
+	char	*str;
 
 	len = 0;
-	len += ft_print_string(ft_itoa(num));
+	str = ft_itoa(num);
+	len += ft_print_string(str);
+	free(str);
 	return (len);
 }
 

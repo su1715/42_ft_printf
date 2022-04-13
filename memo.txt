@@ -1,8 +1,7 @@
-tab size
+tab size (o)
 size_t
-메인함수 만들어서 테스트
-d와 i 차이
+메인함수 만들어서 테스트 (o)
+d와 i 차이(o)
+가변인자(o)
 
 gcc main.c -L ./ -lftprintf
-
-defense makefile 라이브러리 만들기

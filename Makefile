@@ -6,7 +6,7 @@
 #    By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/13 10:56:21 by sujpark           #+#    #+#              #
-#    Updated: 2022/04/13 10:58:53 by sujpark          ###   ########.fr        #
+#    Updated: 2022/04/13 11:31:54 by sujpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re

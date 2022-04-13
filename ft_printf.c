@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:32:55 by sujpark           #+#    #+#             */
-/*   Updated: 2022/04/13 10:59:08 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/13 11:57:07 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	ft_print_format(va_list args, const char format)
 		len += ft_print_hex(va_arg(args, unsigned int));
 	else if (format == '%')
 		len += write(1, "%", 1);
+	else if (format == '\0')
+		;
 	return (len);
 }
 
