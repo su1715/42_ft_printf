@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:32:55 by sujpark           #+#    #+#             */
-/*   Updated: 2022/02/21 17:19:42 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:59:08 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ static int	ft_print_format(va_list args, const char format)
 
 	len = 0;
 	if (format == 'c')
-		len += ft_print_char(va_arg(args, int)); // 왜 int 인가
+		len += ft_print_char(va_arg(args, int));
 	else if (format == 's')
 		len += ft_print_string(va_arg(args, char *));
 	else if (format == 'p')
-		len += ft_print_pointer(va_arg(args, unsigned long long)); //
+		len += ft_print_pointer(va_arg(args, void *));
 	else if (format == 'd' || format == 'i')
 		len += ft_print_decimal(va_arg(args, int));
 	else if (format == 'u')
 		len += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'X')
-		len += ft_print_HEX(va_arg(args, unsigned int));
+		len += ft_print_hex_upper(va_arg(args, unsigned int));
 	else if (format == 'x')
 		len += ft_print_hex(va_arg(args, unsigned int));
 	else if (format == '%')

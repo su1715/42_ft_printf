@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:19:05 by sujpark           #+#    #+#             */
-/*   Updated: 2022/02/21 18:06:09 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/13 10:48:10 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_print_char(int c)
 	return (1);
 }
 
-int ft_print_string(char *str)
+int	ft_print_string(char *str)
 {
 	int	len;
 
@@ -36,4 +36,3 @@ int ft_print_string(char *str)
 	write(1, str, len);
 	return (len);
 }
-
