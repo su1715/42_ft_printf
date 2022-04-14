@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:32:55 by sujpark           #+#    #+#             */
-/*   Updated: 2022/04/14 12:05:50 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:17:24 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ static void	ft_print_format(va_list args, const char format, int *len_ptr)
 		ft_print_hex(va_arg(args, unsigned int), len_ptr);
 	else if (format == '%')
 		ft_print_char('%', len_ptr);
-	else if (format == '\0')
-		;
 }
 
 int	ft_printf(const char *str, ...)
@@ -46,7 +44,10 @@ int	ft_printf(const char *str, ...)
 	while (str[++i])
 	{
 		if (str[i] == '%')
-			ft_print_format(args, str[++i], &len);
+		{
+			if (str[i + 1])
+				ft_print_format(args, str[++i], &len);
+		}
 		else
 			ft_print_char(str[i], &len);
 		if (len == -1)
