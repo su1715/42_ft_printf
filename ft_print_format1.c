@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:19:05 by sujpark           #+#    #+#             */
-/*   Updated: 2022/04/13 16:22:38 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/14 11:59:41 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,30 @@ static size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-int	ft_print_char(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_print_string(char *str)
+void	ft_print_char(char c, int *len_ptr)
 {
 	int	len;
 
+	if (*len_ptr < 0)
+		return ;
+	len = write(1, &c, 1);
+	if (len < 0)
+		*len_ptr = -1;
+	else
+		*len_ptr += len;
+}
+
+void	ft_print_string(char *str, int *len_ptr)
+{
+	int	len;
+
+	if (*len_ptr < 0)
+		return ;
 	if (str == 0)
 		str = "(null)";
-	len = ft_strlen(str);
-	write(1, str, len);
-	return (len);
+	len = write(1, str, ft_strlen(str));
+	if (len < 0)
+		*len_ptr = -1;
+	else
+		*len_ptr += len;
 }

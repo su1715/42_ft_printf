@@ -6,7 +6,7 @@
 /*   By: sujpark <sujpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:18:45 by sujpark           #+#    #+#             */
-/*   Updated: 2022/04/13 13:51:21 by sujpark          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:02:05 by sujpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,19 @@ static char	*ft_itoa(int n)
 	return (res);
 }
 
-int	ft_print_decimal(int num)
+void	ft_print_decimal(int num, int *len_ptr)
 {
-	int		len;
 	char	*str;
 
-	len = 0;
 	str = ft_itoa(num);
-	len += ft_print_string(str);
+	ft_print_string(str, len_ptr);
 	free(str);
-	return (len);
 }
 
-int	ft_print_unsigned(unsigned int num)
+void	ft_print_unsigned(unsigned int num, int *len_ptr)
 {
-	int	len;
-
-	len = 0;
 	if (num >= 10)
-		len += ft_print_unsigned(num / 10);
+		ft_print_unsigned(num / 10, len_ptr);
 	num %= 10;
-	len += ft_print_char("0123456789"[num]);
-	return (len);
+	ft_print_char("0123456789"[num], len_ptr);
 }
